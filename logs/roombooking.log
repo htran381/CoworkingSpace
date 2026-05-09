@@ -1,0 +1,1110 @@
+2026-05-08 19:11:56 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 34160 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:11:56 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:11:58 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.707 seconds (process running for 3.319)
+2026-05-08 19:12:02 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 29532 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:12:02 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:12:03 WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-05-08 19:12:03 ERROR [o.s.b.d.LoggingFailureAnalysisReporter] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2026-05-08 19:12:52 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=1
+2026-05-08 19:12:52 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=1
+2026-05-08 19:12:52 INFO  [c.c.roombooking.service.roomService] - Waitlist promotion: customerId=6 promoted to reservationId=17 for roomId=1
+2026-05-08 19:13:42 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=2
+2026-05-08 19:13:42 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=2
+2026-05-08 19:13:43 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=10
+2026-05-08 19:13:43 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=10
+2026-05-08 19:13:44 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=12
+2026-05-08 19:13:44 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=12
+2026-05-08 19:13:45 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=13
+2026-05-08 19:13:45 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:13:47 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=13
+2026-05-08 19:13:47 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:13:50 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=13
+2026-05-08 19:13:50 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:14:10 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=13 to date=2026-05-08, slot=14:00-15:00
+2026-05-08 19:14:10 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=13, error=PreparedStatementCallback; bad SQL grammar [SELECT r.reservationid, r.status, r.version,
+       c.name, c.email,
+       rm.roomid, rm.roomname, rm.location,
+       ts.date::text,
+       TO_CHAR(ts.starttime, 'HH:MI AM') as starttime,
+       TO_CHAR(ts.endtime, 'HH:MI AM') as endtime
+FROM Reservation r
+JOIN Customer c ON r.customerid = c.customerid
+JOIN Room rm ON r.roomid = rm.roomid
+JOIN TimeSlot ts ON r.timeslotid = ts.timeslotid
+WHERE r.reservationid = ?
+]
+2026-05-08 19:14:34 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=14 to date=2026-05-08, slot=14:00-16:00
+2026-05-08 19:14:34 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=14, error=PreparedStatementCallback; bad SQL grammar [SELECT r.reservationid, r.status, r.version,
+       c.name, c.email,
+       rm.roomid, rm.roomname, rm.location,
+       ts.date::text,
+       TO_CHAR(ts.starttime, 'HH:MI AM') as starttime,
+       TO_CHAR(ts.endtime, 'HH:MI AM') as endtime
+FROM Reservation r
+JOIN Customer c ON r.customerid = c.customerid
+JOIN Room rm ON r.roomid = rm.roomid
+JOIN TimeSlot ts ON r.timeslotid = ts.timeslotid
+WHERE r.reservationid = ?
+]
+2026-05-08 19:17:49 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=hannah@gmail.com, roomId=1, date=2026-05-08, slot=14:00-15:00
+2026-05-08 19:17:49 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=18, customerId=9, roomId=1, date=2026-05-08, slot=14:00-15:00
+2026-05-08 19:17:49 INFO  [c.c.roombooking.service.roomService] - Booking latency: 0ms, reservationId=18
+2026-05-08 19:17:49 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=18, customerId=9, roomId=1, date=2026-05-08, slot=14:00-15:00
+2026-05-08 19:18:05 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=13 to date=2026-05-08, slot=15:00-16:00
+2026-05-08 19:18:05 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=13, error=PreparedStatementCallback; bad SQL grammar [SELECT r.reservationid, r.status, r.version,
+       c.name, c.email,
+       rm.roomid, rm.roomname, rm.location,
+       ts.date::text,
+       TO_CHAR(ts.starttime, 'HH:MI AM') as starttime,
+       TO_CHAR(ts.endtime, 'HH:MI AM') as endtime
+FROM Reservation r
+JOIN Customer c ON r.customerid = c.customerid
+JOIN Room rm ON r.roomid = rm.roomid
+JOIN TimeSlot ts ON r.timeslotid = ts.timeslotid
+WHERE r.reservationid = ?
+]
+2026-05-08 19:23:59 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 12704 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:23:59 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:24:01 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.462 seconds (process running for 2.783)
+2026-05-08 19:24:03 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=13 to date=2026-05-08, slot=15:00-16:00
+2026-05-08 19:24:03 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=13, error=PreparedStatementCallback; SQL [    SELECT r.reservationid, r.status,
+           c.name, c.email,
+           rm.roomid, rm.roomname, rm.location,
+           ts.date::text,
+           TO_CHAR(ts.starttime, 'HH:MI AM') as starttime,
+           TO_CHAR(ts.endtime, 'HH:MI AM') as endtime
+    FROM Reservation r
+    ...
+]; The column index is out of range: 1, number of columns: 0.
+2026-05-08 19:24:14 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=13 to date=2026-05-08, slot=15:00-16:00
+2026-05-08 19:24:14 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=13, error=PreparedStatementCallback; SQL [    SELECT r.reservationid, r.status,
+           c.name, c.email,
+           rm.roomid, rm.roomname, rm.location,
+           ts.date::text,
+           TO_CHAR(ts.starttime, 'HH:MI AM') as starttime,
+           TO_CHAR(ts.endtime, 'HH:MI AM') as endtime
+    FROM Reservation r
+    ...
+]; The column index is out of range: 1, number of columns: 0.
+2026-05-08 19:24:26 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=13 to date=2026-05-08, slot=17:00-18:00
+2026-05-08 19:24:26 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=13, error=PreparedStatementCallback; SQL [    SELECT r.reservationid, r.status,
+           c.name, c.email,
+           rm.roomid, rm.roomname, rm.location,
+           ts.date::text,
+           TO_CHAR(ts.starttime, 'HH:MI AM') as starttime,
+           TO_CHAR(ts.endtime, 'HH:MI AM') as endtime
+    FROM Reservation r
+    ...
+]; The column index is out of range: 1, number of columns: 0.
+2026-05-08 19:25:00 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 52896 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:25:00 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:25:02 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.444 seconds (process running for 2.763)
+2026-05-08 19:25:30 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=13 to date=2026-05-08, slot=15:00-17:00
+2026-05-08 19:25:30 INFO  [c.c.roombooking.service.roomService] - Reschedule successful: reservationId=13, new slot=2026-05-08 15:00-17:00
+2026-05-08 19:25:38 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=14
+2026-05-08 19:25:38 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(14) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(14) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:25:55 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=14 to date=2026-05-09, slot=16:00-17:00
+2026-05-08 19:25:55 INFO  [c.c.roombooking.service.roomService] - Reschedule successful: reservationId=14, new slot=2026-05-09 16:00-17:00
+2026-05-08 19:27:04 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 59324 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:27:04 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:27:05 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.185 seconds (process running for 2.531)
+2026-05-08 19:27:48 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=hannah@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:27:48 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=19, customerId=9, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:27:48 INFO  [c.c.roombooking.service.roomService] - Booking latency: 0ms, reservationId=19
+2026-05-08 19:27:48 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=19, customerId=9, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:28:02 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=14
+2026-05-08 19:28:02 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(14) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(14) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:28:06 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=15
+2026-05-08 19:28:06 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(15) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(15) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:28:11 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=18
+2026-05-08 19:28:11 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(18) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(18) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:28:15 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=13
+2026-05-08 19:28:15 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:28:18 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=13
+2026-05-08 19:28:18 ERROR [o.a.c.c.C.[.[.[.[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [DELETE FROM Reservation WHERE reservationid = ?]; ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".] with root cause
+org.postgresql.util.PSQLException: ERROR: update or delete on table "reservation" violates foreign key constraint "notification_reservationid_fkey" on table "notification"
+  Detail: Key (reservationid)=(13) is still referenced from table "notification".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
+	at com.coworking.roombooking.repository.roomRepo.deleteReservationAndPromote(roomRepo.java:446)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.repository.roomRepo$$SpringCGLIB$$0.deleteReservationAndPromote(<generated>)
+	at com.coworking.roombooking.service.roomService.cancelReservation(roomService.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.coworking.roombooking.service.roomService$$SpringCGLIB$$0.cancelReservation(<generated>)
+	at com.coworking.roombooking.controller.roomController.cancelReservation(roomController.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2026-05-08 19:32:10 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 73160 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:32:10 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:32:12 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.203 seconds (process running for 2.526)
+2026-05-08 19:32:17 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=13
+2026-05-08 19:32:17 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=13
+2026-05-08 19:32:20 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=15
+2026-05-08 19:32:20 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=15
+2026-05-08 19:32:22 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=17
+2026-05-08 19:32:22 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=17
+2026-05-08 19:32:25 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=18
+2026-05-08 19:32:25 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=18
+2026-05-08 19:32:27 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=19
+2026-05-08 19:32:27 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=19
+2026-05-08 19:32:50 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=hannah@gmail.com, roomId=3, date=, slot=-
+2026-05-08 19:34:29 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=hannah@gmail.com, roomId=3, date=2026-05-08, slot=15:00-16:00
+2026-05-08 19:34:29 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=9, roomId=3, timeslotId=27, position=1
+2026-05-08 19:34:29 WARN  [c.c.roombooking.service.roomService] - Waitlist notification failed for customerId=9 — waitlist entry still saved
+2026-05-08 19:35:33 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=test@gmail.com, roomId=3, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:35:33 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=6, roomId=3, timeslotId=26, position=1
+2026-05-08 19:35:33 WARN  [c.c.roombooking.service.roomService] - Waitlist notification failed for customerId=6 — waitlist entry still saved
+2026-05-08 19:36:20 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=test@gmail.com, roomId=3, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:36:20 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=6, roomId=3, timeslotId=26, position=1
+2026-05-08 19:36:20 WARN  [c.c.roombooking.service.roomService] - Waitlist notification failed for customerId=6 — waitlist entry still saved
+2026-05-08 19:36:50 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=hannah@gmail.com, roomId=1, date=2026-05-08, slot=10:00-14:00
+2026-05-08 19:36:50 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=20, customerId=9, roomId=1, date=2026-05-08, slot=10:00-14:00
+2026-05-08 19:36:50 INFO  [c.c.roombooking.service.roomService] - Booking latency: 2ms, reservationId=20
+2026-05-08 19:36:50 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=20, customerId=9, roomId=1, date=2026-05-08, slot=10:00-14:00
+2026-05-08 19:37:40 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=test@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:37:40 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=21, customerId=6, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:37:40 INFO  [c.c.roombooking.service.roomService] - Booking latency: 2ms, reservationId=21
+2026-05-08 19:37:40 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=21, customerId=6, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:37:58 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=14 to date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:37:58 INFO  [c.c.roombooking.service.roomService] - Reschedule successful: reservationId=14, new slot=2026-05-08 16:00-17:00
+2026-05-08 19:38:18 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=14
+2026-05-08 19:38:18 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=14
+2026-05-08 19:38:37 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=test@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:38:37 ERROR [c.c.roombooking.service.roomService] - Reservation failed: roomId=1, date=2026-05-08, slot=16:00-17:00, error=Room is already booked for this time slot.
+2026-05-08 19:39:15 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=1, status=Occupied
+2026-05-08 19:40:03 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=test@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:40:03 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=6, roomId=1, timeslotId=26, position=1
+2026-05-08 19:40:03 WARN  [c.c.roombooking.service.roomService] - Waitlist notification failed for customerId=6 — waitlist entry still saved
+2026-05-08 19:44:24 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 69612 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:44:24 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:44:26 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.372 seconds (process running for 2.664)
+2026-05-08 19:44:38 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=hannah@gmail.com, roomId=1, date=, slot=-
+2026-05-08 19:45:15 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=test@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:45:15 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=6, roomId=1, timeslotId=26, position=1
+2026-05-08 19:45:15 WARN  [c.c.roombooking.service.roomService] - Waitlist notification failed for customerId=6 — waitlist entry still saved
+2026-05-08 19:49:25 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 58172 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:49:25 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:49:27 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.446 seconds (process running for 2.737)
+2026-05-08 19:49:51 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=test@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:49:51 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=6, roomId=1, timeslotId=26, position=1
+2026-05-08 19:50:25 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=21
+2026-05-08 19:50:25 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=21
+2026-05-08 19:50:25 INFO  [c.c.roombooking.service.roomService] - Waitlist promotion: customerId=6 promoted to reservationId=22 for roomId=1
+2026-05-08 19:50:44 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=test@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:50:44 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=6, roomId=1, timeslotId=26, position=1
+2026-05-08 19:50:55 INFO  [c.c.roombooking.service.roomService] - Cancelling waitlist entry: waitlistId=10
+2026-05-08 19:50:55 INFO  [c.c.roombooking.service.roomService] - Waitlist entry cancelled: waitlistId=10
+2026-05-08 19:51:14 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=smith@gmail.com, roomId=1, date=2026-05-08, slot=16:00-17:00
+2026-05-08 19:51:14 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=10, roomId=1, timeslotId=26, position=1
+2026-05-08 19:51:22 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=22
+2026-05-08 19:51:22 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=22
+2026-05-08 19:51:22 INFO  [c.c.roombooking.service.roomService] - Waitlist promotion: customerId=10 promoted to reservationId=23 for roomId=1
+2026-05-08 19:52:08 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=bob@gmail.com, roomId=2, date=2026-05-08, slot=14:00-16:00
+2026-05-08 19:52:08 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=24, customerId=11, roomId=2, date=2026-05-08, slot=14:00-16:00
+2026-05-08 19:52:08 INFO  [c.c.roombooking.service.roomService] - Booking latency: 2ms, reservationId=24
+2026-05-08 19:52:08 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=24, customerId=11, roomId=2, date=2026-05-08, slot=14:00-16:00
+2026-05-08 19:52:16 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=larry@gmail.com, roomId=2, date=2026-05-08, slot=14:00-16:00
+2026-05-08 19:52:16 ERROR [c.c.roombooking.service.roomService] - Reservation failed: roomId=2, date=2026-05-08, slot=14:00-16:00, error=Room is already booked for this time slot.
+2026-05-08 19:53:47 INFO  [c.c.roombooking.service.roomService] - Admin adding room: name=Study Room, type=Lounge, capacity=5
+2026-05-08 19:54:09 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=6, status=Occupied
+2026-05-08 19:54:20 INFO  [c.c.roombooking.service.roomService] - Admin deleting room: roomId=6
+2026-05-08 19:55:24 INFO  [c.c.r.RoombookingApplication] - Starting RoombookingApplication using Java 17.0.7 with PID 23556 (C:\Users\hanna\Downloads\CoworkingSpace\target\classes started by hanna in C:\Users\hanna\Downloads\CoworkingSpace)
+2026-05-08 19:55:24 INFO  [c.c.r.RoombookingApplication] - No active profile set, falling back to 1 default profile: "default"
+2026-05-08 19:55:26 INFO  [c.c.r.RoombookingApplication] - Started RoombookingApplication in 2.268 seconds (process running for 2.548)
+2026-05-08 20:12:52 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=hannah@gmail.com, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:12:52 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=25, customerId=9, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:12:52 INFO  [c.c.roombooking.service.roomService] - Booking latency: 3ms, reservationId=25
+2026-05-08 20:12:52 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=25, customerId=9, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:15:23 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=20 to date=2026-05-08, slot=22:00-23:00
+2026-05-08 20:15:23 INFO  [c.c.roombooking.service.roomService] - Reschedule successful: reservationId=20, new slot=2026-05-08 22:00-23:00
+2026-05-08 20:15:36 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=23
+2026-05-08 20:15:36 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=23
+2026-05-08 20:16:08 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=20
+2026-05-08 20:16:08 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=20
+2026-05-08 20:16:54 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=bob@gmail.com, roomId=2, date=2026-05-08, slot=18:00-19:00
+2026-05-08 20:16:54 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=26, customerId=11, roomId=2, date=2026-05-08, slot=18:00-19:00
+2026-05-08 20:16:54 INFO  [c.c.roombooking.service.roomService] - Booking latency: 2ms, reservationId=26
+2026-05-08 20:16:54 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=26, customerId=11, roomId=2, date=2026-05-08, slot=18:00-19:00
+2026-05-08 20:17:26 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=26 to date=2026-05-08, slot=17:00-18:00
+2026-05-08 20:17:26 INFO  [c.c.roombooking.service.roomService] - Reschedule successful: reservationId=26, new slot=2026-05-08 17:00-18:00
+2026-05-08 20:17:36 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=24
+2026-05-08 20:17:36 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=24
+2026-05-08 20:18:29 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=larry@gmail.com, roomId=2, date=2026-05-08, slot=17:00-18:00
+2026-05-08 20:18:29 ERROR [c.c.roombooking.service.roomService] - Reservation failed: roomId=2, date=2026-05-08, slot=17:00-18:00, error=Room is already booked for this time slot.
+2026-05-08 20:19:15 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=larry@gmail.com, roomId=2, date=2026-05-08, slot=10:00-11:00
+2026-05-08 20:19:15 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=27, customerId=14, roomId=2, date=2026-05-08, slot=10:00-11:00
+2026-05-08 20:19:15 INFO  [c.c.roombooking.service.roomService] - Booking latency: 2ms, reservationId=27
+2026-05-08 20:19:15 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=27, customerId=14, roomId=2, date=2026-05-08, slot=10:00-11:00
+2026-05-08 20:19:33 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=27 to date=2026-05-08, slot=17:00-18:00
+2026-05-08 20:19:33 ERROR [c.c.roombooking.service.roomService] - Reschedule failed: reservationId=27, error=Room is already booked for the requested time slot.
+2026-05-08 20:19:43 INFO  [c.c.roombooking.service.roomService] - Rescheduling reservationId=27 to date=2026-05-08, slot=18:00-19:00
+2026-05-08 20:19:43 INFO  [c.c.roombooking.service.roomService] - Reschedule successful: reservationId=27, new slot=2026-05-08 18:00-19:00
+2026-05-08 20:21:07 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=1, status=Available
+2026-05-08 20:21:15 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=2, status=Occupied
+2026-05-08 20:21:45 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=1, status=Occupied
+2026-05-08 20:21:48 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=1, status=Available
+2026-05-08 20:22:08 INFO  [c.c.roombooking.service.roomService] - Admin adding room: name=Study Room, type=Lounge, capacity=6
+2026-05-08 20:22:20 INFO  [c.c.roombooking.service.roomService] - Admin deleting room: roomId=7
+2026-05-08 20:23:38 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=jane@gmail.com, roomId=2, date=2026-05-08, slot=14:00-15:00
+2026-05-08 20:23:38 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=15, roomId=2, timeslotId=19, position=1
+2026-05-08 20:24:29 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=25
+2026-05-08 20:24:29 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=25
+2026-05-08 20:26:11 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=2, status=Available
+2026-05-08 20:26:20 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=hannah@gmail.com, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:26:20 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=28, customerId=9, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:26:20 INFO  [c.c.roombooking.service.roomService] - Booking latency: 1ms, reservationId=28
+2026-05-08 20:26:20 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=28, customerId=9, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:26:28 INFO  [c.c.roombooking.service.roomService] - Cancelling waitlist entry: waitlistId=12
+2026-05-08 20:26:28 INFO  [c.c.roombooking.service.roomService] - Waitlist entry cancelled: waitlistId=12
+2026-05-08 20:26:31 INFO  [c.c.roombooking.service.roomService] - Admin updating room status: roomId=2, status=Occupied
+2026-05-08 20:27:30 INFO  [c.c.roombooking.service.roomService] - Customer joining waitlist: customer=jane@gmail.com, roomId=2, date=2026-05-09, slot=14:00-15:00
+2026-05-08 20:27:30 INFO  [c.c.roombooking.service.roomService] - Waitlist joined: customerId=15, roomId=2, timeslotId=30, position=1
+2026-05-08 20:27:59 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=28
+2026-05-08 20:27:59 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=28
+2026-05-08 20:27:59 INFO  [c.c.roombooking.service.roomService] - Waitlist promotion: customerId=15 promoted to reservationId=29 for roomId=2
+2026-05-08 20:30:50 INFO  [c.c.roombooking.service.roomService] - Cancelling reservationId=26
+2026-05-08 20:30:50 INFO  [c.c.roombooking.service.roomService] - Reservation cancelled: reservationId=26
+2026-05-08 20:31:49 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=booking@gmail.com, roomId=1, date=2026-05-08, slot=21:00-22:00
+2026-05-08 20:31:49 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=30, customerId=16, roomId=1, date=2026-05-08, slot=21:00-22:00
+2026-05-08 20:31:49 INFO  [c.c.roombooking.service.roomService] - Booking latency: 2ms, reservationId=30
+2026-05-08 20:31:49 INFO  [c.c.roombooking.service.roomService] - Reservation created: reservationId=30, customerId=16, roomId=1, date=2026-05-08, slot=21:00-22:00
+2026-05-08 20:31:52 INFO  [c.c.roombooking.service.roomService] - Attempting reservation: customer=booking2@gmail.com, roomId=1, date=2026-05-08, slot=21:00-22:00
+2026-05-08 20:31:52 ERROR [c.c.roombooking.service.roomService] - Reservation failed: roomId=1, date=2026-05-08, slot=21:00-22:00, error=Room is already booked for this time slot.

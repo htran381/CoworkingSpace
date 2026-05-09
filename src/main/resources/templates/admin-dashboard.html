@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #f0f2f5; min-height: 100vh; padding: 40px 24px; }
+    .page { max-width: 1000px; margin: 0 auto; animation: fadeUp 0.5s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .top-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 32px;
+    }
+    h1 { font-size: 2rem; font-weight: 700; color: #1a1f2e; }
+    .logout {
+      color: #ef4444; font-size: 0.875rem; font-weight: 500;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .logout:hover { color: #dc2626; }
+    .section-label {
+      font-size: 0.8rem; font-weight: 600; color: #9ca3af;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 12px; margin-top: 32px;
+    }
+    .card {
+      background: #fff; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 24px;
+    }
+
+    /* Add Room Form */
+    .add-form {
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr 1fr 1fr auto;
+      gap: 12px;
+      align-items: flex-end;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .add-form .field { display: flex; flex-direction: column; gap: 5px; }
+    .add-form label { font-size: 0.8rem; font-weight: 500; color: #6b7280; }
+    .add-form input, .add-form select {
+      padding: 10px 12px;
+      border: 1.5px solid #e5e7eb; border-radius: 8px;
+      font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+      color: #1a1f2e; outline: none;
+    }
+    .add-form input:focus, .add-form select:focus { border-color: #1a1f2e; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { border-bottom: 1.5px solid #f3f4f6; }
+    th {
+      text-align: left; padding: 12px 20px;
+      font-size: 0.82rem; font-weight: 600; color: #6b7280;
+      letter-spacing: 0.02em;
+    }
+    tbody tr { border-bottom: 1px solid #f9fafb; transition: background 0.15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #fafafa; }
+    td { padding: 14px 20px; font-size: 0.9rem; color: #1a1f2e; vertical-align: middle; }
+    td.muted { color: #9ca3af; }
+
+    /* Badges */
+    .badge {
+      display: inline-block; padding: 3px 10px;
+      border-radius: 20px; font-size: 0.78rem; font-weight: 500;
+    }
+    .badge-available  { background: #dcfce7; color: #16a34a; }
+    .badge-occupied   { background: #fee2e2; color: #dc2626; }
+    .badge-confirmed  { background: #dcfce7; color: #16a34a; }
+
+    /* Buttons */
+    .btn-primary {
+      background: #1a1f2e; color: white; border: none;
+      padding: 10px 20px; border-radius: 50px;
+      font-size: 0.875rem; font-weight: 600;
+      font-family: 'DM Sans', sans-serif; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .btn-primary:hover { background: #2d3548; }
+    .btn-danger {
+      background: none; color: #ef4444; border: none;
+      font-size: 0.875rem; font-weight: 500;
+      font-family: 'DM Sans', sans-serif; cursor: pointer;
+      transition: color 0.2s; padding: 0;
+    }
+    .btn-danger:hover { color: #dc2626; }
+    .btn-toggle {
+      background: none; border: 1.5px solid #e5e7eb;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 500;
+      font-family: 'DM Sans', sans-serif; cursor: pointer;
+      color: #374151; transition: all 0.2s;
+    }
+    .btn-toggle:hover { border-color: #1a1f2e; color: #1a1f2e; }
+
+    /* Error */
+    .alert-error {
+      background: #fee2e2; border: 1px solid #fca5a5;
+      color: #dc2626; padding: 12px 16px; border-radius: 10px;
+      margin-bottom: 16px; font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="top-bar">
+      <h1>⚙️ Admin Dashboard</h1>
+      <a href="/admin/logout" class="logout">Sign Out</a>
+    </div>
+
+    <!-- ── Rooms ─────────────────────────────────────────────────────── -->
+    <div class="section-label">Rooms</div>
+
+    <div class="alert-error" th:if="${roomError}" th:text="${roomError}"></div>
+
+    <div class="card">
+      <!-- Add Room Form -->
+      <form method="post" action="/admin/rooms/add" class="add-form">
+        <div class="field">
+          <label>Room Name</label>
+          <input type="text" name="roomName" placeholder="Focus Room B" required/>
+        </div>
+        <div class="field">
+          <label>Type</label>
+          <select name="roomType">
+            <option value="Office">Office</option>
+            <option value="Conference">Conference</option>
+            <option value="Lounge">Lounge</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Location</label>
+          <input type="text" name="location" placeholder="Floor 2, Room 202"/>
+        </div>
+        <div class="field">
+          <label>Capacity</label>
+          <input type="number" name="capacity" min="1" placeholder="4" required/>
+        </div>
+        <div class="field">
+          <label>Status</label>
+          <select name="status">
+            <option value="Available">Available</option>
+            <option value="Occupied">Occupied</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">+ Add Room</button>
+      </form>
+
+      <!-- Rooms Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Room Name</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Capacity</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="room : ${rooms}">
+            <td th:text="${room.roomName}"></td>
+            <td class="muted" th:text="${room.roomType}"></td>
+            <td class="muted" th:text="${room.location}"></td>
+            <td th:text="${room.capacity}"></td>
+            <td>
+              <span th:text="${room.status}"
+                    th:class="${room.status == 'Available'} ? 'badge badge-available' : 'badge badge-occupied'">
+              </span>
+            </td>
+            <td style="display:flex; gap:12px; align-items:center;">
+              <!-- Toggle status -->
+              <form method="post" action="/admin/rooms/status" style="display:inline;">
+                <input type="hidden" name="roomId" th:value="${room.roomId}"/>
+                <input type="hidden" name="status"
+                       th:value="${room.status == 'Available'} ? 'Occupied' : 'Available'"/>
+                <button type="submit" class="btn-toggle"
+                        th:text="${room.status == 'Available'} ? 'Set Occupied' : 'Set Available'">
+                </button>
+              </form>
+              <!-- Delete -->
+              <form method="post" action="/admin/rooms/delete" style="display:inline;"
+                    onsubmit="return confirm('Delete this room?')">
+                <input type="hidden" name="roomId" th:value="${room.roomId}"/>
+                <button type="submit" class="btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Bookings ──────────────────────────────────────────────────── -->
+    <div class="section-label">All Bookings</div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Room</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="res : ${reservations}">
+            <td class="muted" th:text="'RES' + ${res.reservationId}"></td>
+            <td th:text="${res.customerName}"></td>
+            <td th:text="${res.roomName}"></td>
+            <td th:text="${res.date}"></td>
+            <td th:text="${res.startTime} + ' - ' + ${res.endTime}"></td>
+            <td>
+              <span class="badge badge-confirmed" th:text="${res.status}"></span>
+            </td>
+            <td>
+              <form method="post" action="/admin/bookings/cancel"
+                    onsubmit="return confirm('Cancel this booking?')">
+                <input type="hidden" name="reservationId" th:value="${res.reservationId}"/>
+                <button type="submit" class="btn-danger">Cancel</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</body>
+</html>

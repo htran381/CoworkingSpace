@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Added to Waitlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .page {
+      max-width: 500px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      background: #fff7ed;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1f2e;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #8a8f9e;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .details-card {
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 8px 0;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .detail-row:last-child { border-bottom: none; }
+
+    .detail-label {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .detail-value {
+      font-size: 0.9rem;
+      color: #1a1f2e;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* Position badge */
+    .position-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff7ed;
+      color: #f97316;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: #1a1f2e;
+      color: white;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #2d3548; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #1a1f2e;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: #e0e0e0; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="icon-circle">⏳</div>
+    <h1>You're on the List!</h1>
+    <p class="subtitle">We'll automatically confirm your reservation when a spot opens up.</p>
+
+    <div class="details-card">
+      <div class="detail-row">
+        <span class="detail-label">Customer Name:</span>
+        <span class="detail-value" th:text="${customerName}">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Room:</span>
+        <span class="detail-value" th:text="${room.roomName}">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Location:</span>
+        <span class="detail-value" th:text="${room.location}">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Date:</span>
+        <span class="detail-value" th:text="${date}">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Time:</span>
+        <span class="detail-value" th:text="${startTime} + ' – ' + ${endTime}">—</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Your Position:</span>
+        <span class="detail-value">
+          <span class="position-badge">
+            #<span th:text="${position}">1</span>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a href="/rooms" class="btn-primary">Browse Other Rooms</a>
+      <a href="/" class="btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Waitlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+
+    .page {
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #1a1f2e; }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #1a1f2e;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      color: #8a8f9e;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    /* Room info banner */
+    .room-banner {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .room-banner .icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .room-banner .room-info .room-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1a1f2e;
+      margin-bottom: 2px;
+    }
+    .room-banner .room-info .room-meta {
+      font-size: 0.85rem;
+      color: #9a7c5a;
+    }
+
+    /* Error alert */
+    .alert-error {
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: #dc2626;
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .field-group { margin-bottom: 20px; }
+
+    .field-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .field-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1f2e;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #ffffff;
+    }
+    .field-group input:focus {
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+    }
+
+    .btn-waitlist {
+      width: 100%;
+      padding: 16px;
+      background: #f97316;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s;
+    }
+    .btn-waitlist:hover {
+      background: #ea6c00;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(249,115,22,0.25);
+    }
+
+    .info-note {
+      font-size: 0.82rem;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a href="/rooms" class="back-link">← Back to Rooms</a>
+
+    <h1>Join Waitlist</h1>
+    <p class="page-subtitle">This room is currently occupied. We'll reserve it for you automatically when it becomes available.</p>
+
+    <!-- Room info -->
+    <div class="room-banner">
+      <span class="icon">🏢</span>
+      <div class="room-info">
+        <div class="room-name" th:text="${room.roomName}">Room Name</div>
+        <div class="room-meta" th:text="${room.roomType} + ' · ' + ${room.location}">Type · Location</div>
+      </div>
+    </div>
+
+    <!-- Timeslot being waitlisted -->
+    <div class="room-banner" style="background:#f0f9ff; border-color:#bae6fd;" th:if="${date != null and date != ''}">
+      <span class="icon">📅</span>
+      <div class="room-info">
+        <div class="room-name" th:text="${date}">Date</div>
+        <div class="room-meta" th:text="${startTime} + ' – ' + ${endTime}">Time</div>
+      </div>
+    </div>
+
+    <!-- Error Alert -->
+    <div class="alert-error" th:if="${error}">
+      ⚠️ <span th:text="${error}"></span>
+    </div>
+
+    <div class="form-card">
+      <form method="post" action="/waitlist">
+        <input type="hidden" name="roomId" th:value="${room.roomId}"/>
+        <input type="hidden" name="date" th:value="${date}"/>
+        <input type="hidden" name="startTime" th:value="${startTime}"/>
+        <input type="hidden" name="endTime" th:value="${endTime}"/>
+
+        <div class="field-group">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your full name" required/>
+        </div>
+
+        <div class="field-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required/>
+        </div>
+
+        <button type="submit" class="btn-waitlist">Join Waitlist</button>
+      </form>
+      <p class="info-note">You'll automatically receive a confirmed reservation when a spot opens up.</p>
+    </div>
+  </div>
+</body>
+</html>
